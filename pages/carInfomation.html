@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Telemetry - Car Information</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Zamorano Sousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1 class="headerTelemetry">Telemetry <br> <span id="headerSessionInfo">Aguardando simulador...</span></h1>
+    
+    <nav>
+        <ul>
+            <li><a href="/pages/dashboard.html">Dashboard</a></li>
+            <li><a class="active" href="/pages/carInfomation.html">Car Information</a></li>
+            <li><a href="/pages/liveTrackMap.html">Live Track Map</a></li>
+        </ul>
+    </nav>
+
+    <div id="containerTelemetry">
+
+        <div class="tyresContainer">
+            <div class="tyreBox" id="boxFL">
+                <div class="tyreTitle">F. ESQUERDO</div>
+                <div class="tyreStat">Pres: <span id="tyrePresFL">0.0</span> psi</div>
+                <div class="tyreStat">Temp: <span id="tyreTempFL">0.0</span>°C</div>
+                <div class="tyreStat">Desg: <span id="tyreWearFL">100</span>%</div>
+            </div>
+            <div class="tyreBox" id="boxFR">
+                <div class="tyreTitle">F. DIREITO</div>
+                <div class="tyreStat">Pres: <span id="tyrePresFR">0.0</span> psi</div>
+                <div class="tyreStat">Temp: <span id="tyreTempFR">0.0</span>°C</div>
+                <div class="tyreStat">Desg: <span id="tyreWearFR">100</span>%</div>
+            </div>
+            <div class="tyreBox" id="boxRL">
+                <div class="tyreTitle">T. ESQUERDO</div>
+                <div class="tyreStat">Pres: <span id="tyrePresRL">0.0</span> psi</div>
+                <div class="tyreStat">Temp: <span id="tyreTempRL">0.0</span>°C</div>
+                <div class="tyreStat">Desg: <span id="tyreWearRL">100</span>%</div>
+            </div>
+            <div class="tyreBox" id="boxRR">
+                <div class="tyreTitle">T. DIREITO</div>
+                <div class="tyreStat">Pres: <span id="tyrePresRR">0.0</span> psi</div>
+                <div class="tyreStat">Temp: <span id="tyreTempRR">0.0</span>°C</div>
+                <div class="tyreStat">Desg: <span id="tyreWearRR">100</span>%</div>
+            </div>
+        </div>
+
+        <div class="item suspensionItem">
+            <span style="color: #888; display: block; margin-bottom: 15px; font-size: 32px;">Curso da Suspensão (Travel)</span>
+            
+            <div class="suspensionContainer">
+                <div>
+                    <span class="suspensionDesc">F. ESQUERDA</span><br>
+                    <span id="suspFL" class="susp">0.0</span> <span style="color: #555;">mm</span>
+                </div>
+                <div>
+                    <span class="suspensionDesc">F. DIREITA</span><br>
+                    <span id="suspFR" class="susp">0.0</span> <span style="color: #555;">mm</span>
+                </div>
+                <div>
+                    <span class="suspensionDesc">T. ESQUERDA</span><br>
+                    <span id="suspRL" class="susp">0.0</span> <span style="color: #555;">mm</span>
+                </div>
+                <div>
+                    <span class="suspensionDesc">T. DIREITA</span><br>
+                    <span id="suspRR" class="susp">0.0</span> <span style="color: #555;">mm</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="damageContainer">
+            <div class="damageTitle">DAMAGE</div>
+            <div class="damageGrid">
+                <div>Frente: <span id="dmgFront">0%</span></div>
+                <div>Atrás: <span id="dmgRear">0%</span></div>
+                <div>Esquerda: <span id="dmgLeft">0%</span></div>
+                <div>Direita: <span id="dmgRight">0%</span></div>
+                <div>Centro: <span id="dmgCenter">0%</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/carInformation/carInformation.js"></script>
+</body>
+</html>

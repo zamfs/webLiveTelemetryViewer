@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Telemetry - Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Zamorano Sousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1 class="headerTelemetry">Telemetry <br><span id="headerSessionInfo">Aguardando simulador...</span></h1>
+    
+    <nav>
+        <ul>
+            <li><a class="active" href="/pages/dashboard.html">Dashboard</a></li>
+            <li><a href="/pages/carInfomation.html">Car Information</a></li>
+            <li><a href="/pages/liveTrackMap.html">Live Track Map</a></li>
+        </ul>
+    </nav>
+
+    <div class="containerHud">
+            <div class="hud">
+                <div class="tcAbsLigths tcAbsLigthsLeft">
+                    <div class="tcAbsLIGHT" id="tcLight1"></div>
+                    <div class="tcAbsLIGHT" id="tcLight2"></div>
+                </div>
+
+                <div class="tcAbsLigths tcAbsLigthsRight">
+                    <div class="tcAbsLIGHT" id="absLight1"></div>
+                    <div class="tcAbsLIGHT" id="absLight2"></div>
+                </div>
+
+                <div class="item rpmLightsContainer">
+                    <div class="rpmLIGHT" id="light1"></div>
+                    <div class="rpmLIGHT" id="light2"></div>
+                    <div class="rpmLIGHT" id="light3"></div>
+                    <div class="rpmLIGHT" id="light4"></div>
+                    <div class="rpmLIGHT" id="light5"></div>
+                    <div class="rpmLIGHT" id="light6"></div>
+                    <div class="rpmLIGHT" id="light7"></div>
+                    <div class="rpmLIGHT" id="light8"></div>
+                </div>
+
+                <div class="item lapTime">
+                    <p id="currentLapTime" class="itemsLapTimeInfo time"> 
+                        <span class="currentLap" id="lapTimeMin">00</span><span class="currentLap">:</span>
+                        <span class="currentLap" id="lapTimeSec">00</span><span class="currentLap">:</span>
+                        <span class="currentLap" id="lapTimeMil">00</span>
+                    </p>
+                </div>
+
+                <div class="item otherTimeHUD">
+                    <p class="itemsLapTimeInfo time" title="Última Volta">
+                        <span class="lasLap" id="lastLapMin">00</span>:
+                        <span class="lasLap" id="lastLapSec">00</span>:
+                        <span class="lasLap" id="lastLapMil">00</span>
+                    </p>
+                    <p id="bestLap" class="itemsLapTimeInfo time" title="Melhor Volta">
+                        <span class="bestLap" id="bestLapMin">00</span>:
+                        <span class="bestLap" id="bestLapSec">00</span>:
+                        <span class="bestLap" id="bestLapMil">00</span>
+                    </p>
+                </div>
+
+                <div class="item limiterHUD">
+                    <span class="info">LIMITER</span>
+                    <span class="value" id="limiterStatus" style="font-size: 32px;">OFF</span>
+                </div>
+
+                <div class="item speedHUD">
+                    <span class="info">SPEED</span>
+                    <span class="value" id="speed">0</span>
+                </div>
+
+                <div class="item gearHUD">
+                    <span id="gear">N</span>
+                </div>
+
+                <div class="item lapCountHUD">
+                    <span class="info">LAP</span>
+                    <span class="lapHUD value" id="lapCount">0</span>
+                </div>
+
+                <div class="item fuelHUD">
+                    <span class="info">FUEL / LAP</span>
+                    <span class="value" id="fuel" style="font-size: 16px;">0.0L (-0.00)</span>
+                </div>
+
+                <div class="item pedalsHUD">
+                    <div class="pedalBox">
+                        <span id="brakeValue">0%</span>
+                        <div class="pedalBG">
+                            <div id="pedalBrake" class="pedalFill brake"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="pedalBox">
+                        <span id="gasValue">0%</span>
+                        <div class="pedalBG">
+                            <div id="pedalGas" class="pedalFill gas"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <script type="module" src="/js/dashboard/dashboard.js"></script>
+</body>
+</html>

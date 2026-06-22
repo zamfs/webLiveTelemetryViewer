@@ -1,0 +1,20 @@
+.trackMapItem {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    text-align: center;
+}
+
+.mapContainer { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+}
+
+#trackMapCanvas { 
+    background: #1a1a1a; 
+    border-radius: 4px; 
+    border: 1px solid #333;
+}

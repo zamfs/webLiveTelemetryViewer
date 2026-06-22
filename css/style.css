@@ -1,0 +1,15 @@
+@import url(/css/global/base.css);
+
+@import url(/css/dashboard/page.css);
+@import url(/css/dashboard/hud.css);
+@import url(/css/dashboard/activationTCandABS.css);
+@import url(/css/dashboard/rpmLights.css);
+@import url(/css/dashboard/pedals.css);
+@import url(/css/dashboard/laptime.css);
+
+@import url(/css//carInformation/damageInfo/damage.css);
+@import url(/css//carInformation/tyreInfo/tyre.css);
+@import url(/css/carInformation/suspensionInfo/suspension.css);
+
+@import url(/css/liveTrackMap/time.css);
+@import url(/css/liveTrackMap/track.css);

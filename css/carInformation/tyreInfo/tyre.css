@@ -1,0 +1,30 @@
+/* Container de Pneus - Grid de 2 colunas simulando a distribuição física do carro */
+.tyresContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tyreBox {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+    color: #fff;
+}
+
+.tyreTitle {
+    font-size: 13px;
+    color: #00aaff;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 4px;
+}
+
+.tyreStat {
+    font-size: 14px;
+    margin: 3px 0;
+}

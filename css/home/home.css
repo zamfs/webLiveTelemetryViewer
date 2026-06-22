@@ -1,0 +1,143 @@
+#bodyHome {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#bgVideo {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.containerSlogan {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sloganHome {
+    height: 8.375rem;
+    color: var(--textW);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+#specialTextHome {
+    height: 10.56rem;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0;
+
+    background: linear-gradient(
+        135deg,
+        var(--greenD),
+        var(--textW),
+        var(--greenD)
+    );
+
+    background-size: 200% auto;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 4s ease-in-out infinite;
+}
+
+.btnStart {
+    display: inline-block;
+    margin-top: 2.5rem;       /* Cria o espaçamento abaixo do slogan */
+    padding: 15px 50px;       /* Define a altura e largura interna para dar o formato */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;    /* Remove o sublinhado padrão de links */
+    
+    /* Cor do texto do botão (ajuste para preto ou cinza escuro para dar contraste com o fundo verde/branco) */
+    color: #111;              
+    
+    /* Formato levemente oval */
+    border-radius: 50px;      
+
+    /* Substitua o degradê atual por este: */
+    background-image: linear-gradient(
+        135deg,
+        var(--greenD) 0%,
+        var(--greenD) 40%,
+        var(--greenL) 50%,     /* O branco agora é só uma faixa fina no meio */
+        var(--greenD) 60%,
+        var(--greenD) 100%
+    );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    animation: gradientMove 4s ease-in-out infinite;
+
+    /* Configura uma transição suave para os efeitos de animação do mouse */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* IMPORTANTE: Como adicionamos 'pointer-events: none' no container pai na resposta anterior 
+       para não bloquear o botão de som, precisamos reativar os cliques no botão aqui: */
+    pointer-events: auto; 
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse por cima (Hover) */
+.btnStart:hover {
+    transform: scale(1.07);   /* Fica levemente maior (7% maior) */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra para dar profundidade */
+}
+
+#soundToggle {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+#soundIcon {
+    position: fixed;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    width: 70px;
+    height: 70px;
+    filter: invert(100%);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

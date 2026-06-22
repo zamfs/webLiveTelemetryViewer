@@ -1,0 +1,20 @@
+.itemsLapTimeInfo {
+    font-family: Poppins;
+    font-size: 1.5rem;
+    color: var(--textW);
+    margin: 0;
+}
+
+.currentLap {
+    color: var(--greenL);
+}
+#currentLapTime {
+    color: var(--greenL);
+}
+
+.bestLap {
+    color: blueviolet;
+}
+#bestLap {
+    color: blueviolet;
+}

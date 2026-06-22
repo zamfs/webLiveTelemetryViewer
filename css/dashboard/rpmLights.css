@@ -1,0 +1,43 @@
+.rpmLightsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: #0d0d0d;
+    padding: 20px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.rpmLIGHT {
+    flex: 1;
+    width: 45px;
+    height: 45px;
+    background: #222;
+    border-radius: 50%;
+
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+
+    transition: background 0.05s ease, box-shadow 0.05s ease;
+}
+
+.rpmLIGHT:nth-child(-n+5).active {
+    background: #2ecc71;
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 15 rgba(46, 204, 113, 0.6);
+}
+
+.rpmLIGHT:nth-child(n+6):nth-child(-n+7).active {
+    background: #f1c40f;
+    box-shadow: 
+        inset 0 0 10px rgba(255,255,255,0.7),
+        0 0 15px rgba(241, 196, 15, 0.6);
+}
+
+.rpmLIGHT:nth-child(8).active {
+    background: #e74c3c; /* Vermelho */
+    box-shadow: 
+        inset 0 0 10px rgba(255,255,255,0.7),
+        0 0 15px rgba(231, 76, 60, 0.6);
+}

@@ -1,0 +1,25 @@
+.suspensionItem {
+    background: #111; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 20px;
+}
+
+.suspensionContainer {
+    width: 100%;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 20px; 
+    text-align: center;
+}
+
+.suspensionDesc {
+    color: #00aaff;
+    font-size: 24px;
+}
+
+.susp {
+    font-size: 32px; 
+    font-weight: bold; 
+    color: #fff;
+}

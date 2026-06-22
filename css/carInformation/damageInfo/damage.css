@@ -1,0 +1,25 @@
+/* Painel de Exibição de Danos */
+.damageContainer {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.damageTitle {
+    font-size: 24px;
+    color: #ff3333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.damageGrid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 16px;
+    gap: 10px;
+}

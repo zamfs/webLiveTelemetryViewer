@@ -1,0 +1,79 @@
+:root {
+  --bg: #0B0F14;
+  --bgHeader: #131A22;
+  --greenL: #00FF88;
+  --greenD: #27A92A;
+  --alert: #FF3B3B;
+  --textM: #E6EDF3;
+  --textS:#9CA3AF;
+  --borderColor:#1F2933;
+  --textW:#FFFFFF;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 0;
+  line-height: normal;
+  background: var(--bg);
+}
+
+h1 {
+  line-height: 0.7;
+  padding: 0;
+}
+
+.headerTelemetry {
+  font-family: Poppins;
+  color: var(--textW);
+  font-size: 3rem;
+  text-align: center;
+}
+
+#containerTelemetry {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 5px;
+  padding: 10px;
+  font-family: monospace;
+}
+
+
+#headerSessionInfo {
+  font-size: 16px;
+  color: #aaa;
+  
+}
+
+nav {
+  margin-bottom: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  font-family: Poppins;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  display: inline-block;
+  
+}
+
+a:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.active {
+  color: #00FF88;
+}

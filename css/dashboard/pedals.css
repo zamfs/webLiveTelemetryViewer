@@ -1,0 +1,63 @@
+.pedalsHUD {
+    grid-column: 5;
+    grid-row: 2/5;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: stretch;
+    justify-content: center;
+    padding: 15px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.pedalBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.pedalBG {
+    width: 35px; 
+    flex-grow: 1; 
+    background: #1a1a1a; 
+    border-radius: 4px; 
+    position: relative; 
+    overflow: hidden; 
+    border: 1px solid #333;
+}
+
+#brakeValue {
+    font-size: 12px; 
+    color: #fff; 
+    margin-bottom: 8px; 
+    font-weight: bold;
+}
+
+#pedalBrake {
+    width: 100%; 
+    height: 0%; 
+    background: #ff3333; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    transition: height 0.05s;
+}
+
+#gasValue {
+    font-size: 12px; 
+    color: #fff; 
+    margin-bottom: 8px; 
+    font-weight: bold;
+}
+
+#pedalGas {
+    width: 100%; 
+    height: 0%; 
+    background: #33ff33; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    transition: height 0.05s;
+}

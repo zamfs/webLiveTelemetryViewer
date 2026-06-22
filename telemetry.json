@@ -1,0 +1,86 @@
+{
+  "lap": {
+    "current_time": "0:12:673", 
+    "number_of_laps": 3, 
+    "last_time": "0:25:812", 
+    "i_best_time": 25812, 
+    "current_lap": 1, 
+    "i_last_time": 25812, 
+    "best_time": "0:25:812", 
+    "last_sector_time": "6930", 
+    "i_current_time": 12673, 
+    "session_time_left": "-43040.6015625", 
+    "sector": 1
+  }, 
+  "pedals": {
+    "gas": 0.0, 
+    "brake": 0.131
+  }, 
+  "engine": {
+    "rpm": 0, 
+    "gear": 7
+  }, 
+  "car": {
+    "model": "lmp2_dallara_p217", 
+    "coordinates": {
+      "z": 240.96946716308594, 
+      "x": -26.437339782714844, 
+      "y": -19.710601806640625
+    }
+  }, 
+  "fuel": {
+    "consumption_per_lap": 0.78, 
+    "current": 28.92
+  }, 
+  "suspension": {
+    "rear_left": 0.0656, 
+    "front_left": 0.0676, 
+    "rear_right": 0.0637, 
+    "front_right": 0.0687
+  }, 
+  "speed": {
+    "kmh": 0.0
+  }, 
+  "damage": {
+    "center": 159.95, 
+    "rear": 0.0, 
+    "right": 105.72, 
+    "left": 0.0, 
+    "front": 159.95
+  }, 
+  "track": {
+    "name": "iowa_speedway", 
+    "layout_points": []
+  }, 
+  "track_limits": {
+    "tyres_out": 0
+  }, 
+  "electronics": {
+    "abs": 0, 
+    "tc": 0, 
+    "pit_limiter": 0, 
+    "drs": 0
+  }, 
+  "timestamp": "", 
+  "tyres": {
+    "tyre_compound": "Medium (M)", 
+    "wear": {
+      "rear_left": 99.99, 
+      "front_left": 99.99, 
+      "rear_right": 99.98, 
+      "front_right": 99.98
+    }, 
+    "temperature": {
+      "rear_left": 79.2, 
+      "front_left": 65.1, 
+      "rear_right": 94.7, 
+      "front_right": 98.5
+    }, 
+    "pressure": {
+      "rear_left": 28.44, 
+      "front_left": 26.73, 
+      "rear_right": 30.31, 
+      "front_right": 30.77
+    }
+  }
+}

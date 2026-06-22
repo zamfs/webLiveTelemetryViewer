@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Race Strategy - Telemetry</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Zamorano Sousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1 class="headerTelemetry">Telemetry <br><span id="headerSessionInfo">Aguardando simulador...</span></h1>
+    
+    <nav>
+        <ul>
+            <li><a href="/pages/dashboard.html">Dashboard</a></li>
+            <li><a href="/pages/carInfomation.html">Car Information</a></li>
+            <li><a class="active" href="/pages/liveTrackMap.html">Live Track Map</a></li>
+        </ul>
+    </nav>
+
+    <div id="containerTelemetry">
+
+        <div class="trackMapItem">
+            <div class="mapContainer">
+                <canvas id="trackMapCanvas" width="500" height="500"></canvas>
+            </div>
+        </div>
+        
+        <div class="timingContainer">
+    
+            <div class="timingLeft">
+                <div class="timeBox">
+                    <span id="sessionTimeLabel" style="color: #888;">Tempo Restante da Sessão:</span>
+                    <span id="sessionTimeLeft">--:--:--</span>
+                </div>
+                <div class="timeBox">
+                    <span style="color: #888;">Delta:</span>
+                    <span id="deltaTime">+0.000</span>
+                </div>
+            </div>
+
+            <div class="timingRight">
+                <div class="timeBox">
+                    <span style="color: #888;">Tempo Atual:</span>
+                    <span id="currentTime">--:--.---</span>
+                </div>
+                <div class="timeBox">
+                    <span style="color: #888;">Última Volta:</span>
+                    <span id="lastTime">--:--.---</span>
+                </div>
+                <div class="timeBox">
+                    <span style="color: #888;">Melhor Volta:</span>
+                    <span id="bestTime">--:--.---</span>
+                </div>
+            </div>
+
+            <div class="sectorsBox">
+                <span style="color: #888;">Setores (Melhor Volta):</span>
+                <span id="bestS1" style="color: #fff;">S1: --.---</span>
+                <span id="bestS2" style="color: #fff;">S2: --.---</span>
+                <span id="bestS3" style="color: #fff;">S3: --.---</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="/js/liveTrackMap/liveTrackMap.js"></script>
+</body>
+</html>
