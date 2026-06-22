@@ -2,7 +2,15 @@ const dgram = require('dgram');
 const { Server } = require("socket.io");
 
 const io = new Server(3000, {
-  cors: { origin: "*" }
+  cors: { 
+    // Permite apenas o seu site no Render (e o localhost para quando você estiver programando)
+    origin: [
+      "https://livetelemetryviewer.onrender.com",
+      "http://127.0.0.1:5500", // Porta padrão do Live Server do VS Code (opcional)
+      "http://localhost:5500"
+    ],
+    methods: ["GET", "POST"]
+  }
 });
 
 // === LOG 1: Monitora o Navegador ===
