@@ -1,6 +1,6 @@
 // modules/controls.js
 export function updateControls(data) {
-    // 2. Velocidade e Marcha
+    // 2. Speed and Gear
     const speedKmh = Math.round(data.speed.kmh);
     document.getElementById('speed').innerText = speedKmh;
     
@@ -11,7 +11,7 @@ export function updateControls(data) {
     
     document.getElementById('gear').innerText = gearDisplay;
 
-    // 5. Eletrônica auxiliares (Pit Limiter)
+    // 5. Eletronics
     const limiter = document.getElementById('limiterStatus');
     if (data.electronics.pit_limiter === 1){
         limiter.innerText = "ON";
@@ -21,7 +21,7 @@ export function updateControls(data) {
     limiter.style.color = data.electronics.pit_limiter === 1 ? "#ff3333" : "#fff";
 
 
-    // 6. Alertas de TC e ABS
+    // 6. TC e ABS
     const tcActive = data.electronics.tc === 1;
     document.getElementById('tcLight1').style.backgroundColor = tcActive ? "#ffaa00" : "#333";
     document.getElementById('tcLight2').style.backgroundColor = tcActive ? "#ffaa00" : "#333";
@@ -30,7 +30,7 @@ export function updateControls(data) {
     document.getElementById('absLight1').style.backgroundColor = absActive ? "#00aaff" : "#333";
     document.getElementById('absLight2').style.backgroundColor = absActive ? "#00aaff" : "#333";
 
-    // 7. Barras Verticais dos Pedais
+    // 7. Pedals grph
     const gasPercent = Math.round(data.pedals.gas * 100);
     document.getElementById('gasValue').innerText = gasPercent + "%";
     document.getElementById('pedalGas').style.height = gasPercent + "%";
@@ -39,7 +39,7 @@ export function updateControls(data) {
     document.getElementById('brakeValue').innerText = brakePercent + "%";
     document.getElementById('pedalBrake').style.height = brakePercent + "%";
 
-    // 8. LEDs Simulados de RPM
+    // 8. RPM
     const currentRpm = data.engine.rpm;
     for (let i = 1; i <= 8; i++) {
         const led = document.getElementById('light' + i);

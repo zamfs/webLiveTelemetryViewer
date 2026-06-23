@@ -3,22 +3,22 @@ const { Server } = require("socket.io");
 
 const io = new Server(3000, {
   cors: { 
-    // Permite apenas o seu site no Render (e o localhost para quando você estiver programando)
+    // Limit the access
     origin: [
       "https://livetelemetryviewer.onrender.com",
-      "http://127.0.0.1:5500", // Porta padrão do Live Server do VS Code (opcional)
+      "http://127.0.0.1:5500", // Just for live server (it's optional)
       "http://localhost:5500"
     ],
     methods: ["GET", "POST"]
   }
 });
 
-// === LOG 1: Monitora o Navegador ===
+// === LOG 1: Monitor the browser ===
 io.on('connection', (socket) => {
-  console.log(`💻 Navegador conectado ao Socket.io! ID do cliente: ${socket.id}`);
+  console.log(`💻 Browser connected to Socket.io! Client ID: ${socket.id}`);
   
   socket.on('disconnect', () => {
-    console.log('❌ Navegador fechou ou desconectou.');
+    console.log('❌ Browser closed or disconnected.');
   });
 });
 
@@ -28,18 +28,17 @@ udpServer.on('message', (msg, rinfo) => {
   try {
     const telemetryData = JSON.parse(msg.toString('utf-8'));
     
-    // === LOG 2: Monitora o Jogo (Assetto Corsa) ===
-    // Imprime a velocidade no terminal só para sabermos que o Python está enviando dados
-    console.log(`🏎️ Dados recebidos do Assetto Corsa! Velocidade atual: ${telemetryData.speed.kmh} km/h`);
+    // === LOG 2: Monitor the game (Assetto Corsa) ===
+    console.log(`🏎️ Data received from Assetto Corsa!`);
     
-    // Repassa para o site
+    // Sends to the web
     io.emit('telemetry_update', telemetryData);
   } catch (error) {
-    console.error("Erro ao processar dados do Python:", error);
+    console.error("ERROR to process the data from python:", error);
   }
 });
 
 udpServer.bind(9996, () => {
-  console.log('🚀 Ponte ativa e escutando o Assetto Corsa na porta UDP 9996...');
-  console.log('📡 Servidor Socket.io pronto para o navegador na porta 3000...');
+  console.log('🚀 Bridge active, listening to Assetto Corsa (UDP 9996)...');
+  console.log('📡 Socket.io server ready for browser (port 3000)...');
 });

@@ -11,12 +11,6 @@ const parseTimeStr = (timeStr, prefixId) => {
 };
 
 export function updateSession(data) {
-    // 1. Informações Básicas superiores
+    // 1. Basic Informations
     document.getElementById('headerSessionInfo').innerText = `${data.car.model} @ ${data.track.name}`;
-
-    // 3. Local para informações de tempo
-    
-
-    // 4. Combustível e Consumo
-
 }

@@ -3,22 +3,22 @@
 const canvas = document.getElementById('trackMapCanvas'); 
 const ctx = canvas ? canvas.getContext('2d') : null;
 
-// Array em segundo plano (onde coletamos os pontos da volta atual)
+// Array to collect the points of the current lap.
 let currentLapPath = [];
 
-// Array oficial (o mapa consolidado que será desenhado na tela)
+// Array oficial (the map will be drawn with these points)
 let officialTrackMap = [];
 
-// Limites globais para cálculo de escala baseado no mapa oficial (ou no atual enquanto o oficial não existe)
+// global limits
 let minX = Infinity, maxX = -Infinity;
 let minZ = Infinity, maxZ = -Infinity;
 
 let lastLapRecorded = -1; 
-let mapIsReady = false; // Indica se já temos pelo menos uma volta completa gravada
+let mapIsReady = false; // check if theres already one lap completed
 
 export function drawnTrack(data) {
     if (!ctx) {
-        console.error("Canvas não encontrado! Verifique se existe um <canvas id='trackMapCanvas'> no HTML.");
+        console.error("Canvas not found!");
         return;
     }
 
@@ -26,19 +26,19 @@ export function drawnTrack(data) {
     const z = data.car.coordinates.z; 
     const currentLap = data.lap.current_lap;
 
-    // Inicializa o controle na primeira execução do script
+    // Initialize the control of the first script execution.
     if (lastLapRecorded === -1) {
         lastLapRecorded = currentLap;
     }
 
-    // MUDANÇA DA VOLTA (Cruzou a linha de chegada)
+    // LAP CHANGE (Crossed the finish line)
     if (currentLap !== lastLapRecorded) {
-        // Se a volta que acabou tinha pontos suficientes, ela se torna o novo mapa oficial
+        // If the lap had enough points, it will be the next official map
         if (currentLapPath.length > 50) {
             officialTrackMap = [...currentLapPath];
             mapIsReady = true;
 
-            // Recalcula os limites (min/max) baseando-se EXCLUSIVAMENTE no mapa oficial perfeito
+            // Recalculate limits (min/max) taking in consideration JUST the official map
             minX = Infinity; maxX = -Infinity;
             minZ = Infinity; maxZ = -Infinity;
             for (let pt of officialTrackMap) {
@@ -49,14 +49,14 @@ export function drawnTrack(data) {
             }
         }
         
-        // Limpa a coleta em segundo plano para começar a gravar a próxima volta
+        // clean the array to do the next lap points read
         currentLapPath = [];
         lastLapRecorded = currentLap;
     }
 
     const lastPoint = currentLapPath[currentLapPath.length - 1];
 
-    // Evita a linha reta do teletransporte vindo dos boxes/Hotlap start
+    // Avoid some weirds straights lines in the map.
     if (lastPoint) {
         const distance = Math.sqrt(Math.pow(lastPoint.x - x, 2) + Math.pow(lastPoint.z - z, 2));
         if (distance > 150) {
@@ -68,7 +68,7 @@ export function drawnTrack(data) {
         }
     }
 
-    // Grava o ponto atual no buffer de segundo plano
+    // Record the current point in the secondary arrary
     if (!lastPoint || Math.abs(lastPoint.x - x) > 1.0 || Math.abs(lastPoint.z - z) > 1.0) {
         currentLapPath.push({ x, z });
         
@@ -80,20 +80,19 @@ export function drawnTrack(data) {
         }
     }
 
-    // Limpa a tela para a nova renderização
+    // Clean the screen
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // DEFINIÇÃO DO QUE MOSTRAR NA TELA
+  
     if (!mapIsReady) {
-        // CORREÇÃO: Enquanto o mapa não estiver pronto, mostra APENAS a mensagem.
-        // A bolinha do carro não será desenhada aqui.
+        // While the map is not ready, just shoes the message
         ctx.fillStyle = "#ffffff"; 
         ctx.font = "bold 16px Arial";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText("Aguardando completar a primeira volta...", canvas.width / 2, canvas.height / 2);
+        ctx.fillText("Waiting for the first lap be completed...", canvas.width / 2, canvas.height / 2);
     } else {
-        // Se o mapa está pronto, calcula a escala estável e desenha tudo junto
+        // If the map is ready
         const rangeX = (maxX - minX) || 1;
         const rangeZ = (maxZ - minZ) || 1;
         const scale = Math.min(canvas.width / rangeX, canvas.height / rangeZ) * 0.95;
@@ -107,7 +106,7 @@ export function drawnTrack(data) {
             };
         };
 
-        // 1. Desenha as linhas estáveis do MAPA OFICIAL
+        // 1. Drawn the lines of the official map
         if (officialTrackMap.length > 1) {
             ctx.beginPath();
             ctx.lineWidth = 8;
@@ -125,8 +124,8 @@ export function drawnTrack(data) {
             ctx.stroke();
         }
 
-        // 2. Desenha o marcador do carro (bolinha vermelha)
-        // Como está dentro do bloco "else", ele só aparece quando o mapa oficial também for exibido
+        // 2. Drawn the car (red circle)
+        // Just appears when the map is ready
         const carPos = mapToCanvas(x, z);
         ctx.beginPath();
         ctx.arc(carPos.cx, carPos.cz, 6, 0, 2 * Math.PI);

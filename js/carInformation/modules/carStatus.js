@@ -8,13 +8,13 @@ const updateTyre = (suffix, tyreData) => {
 };
 
 export function updateCarStatus(data) {
-    // 9. Dados de Pneus
+    // 9. Tyre data
     updateTyre('FL', data.tyres.pressure ? {pressure: data.tyres.pressure.front_left, temperature: data.tyres.temperature.front_left, wear: data.tyres.wear.front_left} : null);
     updateTyre('FR', {pressure: data.tyres.pressure.front_right, temperature: data.tyres.temperature.front_right, wear: data.tyres.wear.front_right});
     updateTyre('RL', {pressure: data.tyres.pressure.rear_left, temperature: data.tyres.temperature.rear_left, wear: data.tyres.wear.rear_left});
     updateTyre('RR', {pressure: data.tyres.pressure.rear_right, temperature: data.tyres.temperature.rear_right, wear: data.tyres.wear.rear_right});
 
-    // 10. Danos Estruturais
+    // 10. Damage
     document.getElementById('dmgFront').innerText = Math.round(data.damage.front) + "%";
     document.getElementById('dmgRear').innerText = Math.round(data.damage.rear) + "%";
     document.getElementById('dmgLeft').innerText = Math.round(data.damage.left) + "%";

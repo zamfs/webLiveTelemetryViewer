@@ -11,15 +11,15 @@ const parseTimeStr = (timeStr, prefixId) => {
 };
 
 export function updateSession(data) {
-    // 1. Informações Básicas superiores
+    // 1. Basic Informations
     document.getElementById('headerSessionInfo').innerText = `${data.car.model} @ ${data.track.name}`;
 
-    // 3. Mapeamento dos Tempos de Volta
+    // 3. Lap times
     parseTimeStr(data.lap.current_time, 'lapTime');
     parseTimeStr(data.lap.last_time, 'lastLap');
     parseTimeStr(data.lap.best_time, 'bestLap'); 
 
-    // 4. Combustível e Consumo
+    // 4. Fuel and consumption
     document.getElementById('fuel').innerText = data.fuel.current.toFixed(1) + "L (-" + data.fuel.consumption_per_lap.toFixed(2) + ")";
     document.getElementById('lapCount').innerText = data.lap.current_lap;
 }
