@@ -8,7 +8,7 @@ socket.on('telemetry_update', (data) => {
     console.log("Dado recebido do Socket!: ", data);
     // Sempre que o Node.js envia o pacote do Assetto Corsa, esta função roda automaticamente
     updateSession(data);
-    updateCarStatus(data);
+    drawnTrack(data);
 });
 
 // Opcional: Feedback visual no console caso o servidor local não esteja rodando
