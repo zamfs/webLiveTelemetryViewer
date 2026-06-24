@@ -3,7 +3,9 @@
 import { updateSession } from '../dashboard/modules/session.js';
 import { updateControls } from '../dashboard/modules/controls.js';
 
-const socket = io('http://localhost:3000');
+const socket = io('https://seu-projeto.onrender.com', {
+    transports: ['websocket']
+});
 
 socket.on('telemetry_update', (data) => {
   

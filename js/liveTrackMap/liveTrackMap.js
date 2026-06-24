@@ -2,7 +2,9 @@
 import { drawnTrack } from '../liveTrackMap/modules/drawTrack.js';
 import { updateSession } from '../liveTrackMap/modules/session.js';
 
-const socket = io('http://localhost:3000');
+const socket = io('https://seu-projeto.onrender.com', {
+    transports: ['websocket']
+});
 
 socket.on('telemetry_update', (data) => {
     
