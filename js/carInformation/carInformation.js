@@ -2,7 +2,7 @@
 import { updateCarStatus } from '../carInformation/modules/carStatus.js';
 import { updateSession } from '../carInformation/modules/session.js';
 
-const socket = io('https://seu-projeto.onrender.com', {
+const socket = io('https://livetelemetryviewer.onrender.com', {
     transports: ['websocket']
 });
 
