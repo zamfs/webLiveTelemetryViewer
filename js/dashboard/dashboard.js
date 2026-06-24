@@ -3,7 +3,7 @@
 import { updateSession } from '../dashboard/modules/session.js';
 import { updateControls } from '../dashboard/modules/controls.js';
 
-const socket = io('https://livetelemetryviewer.onrender.com/pages/dashboard.html', {
+const socket = io('https://livetelemetryviewer.onrender.com', {
     transports: ['websocket']
 });
 
