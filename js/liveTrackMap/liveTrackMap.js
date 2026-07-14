@@ -2,7 +2,7 @@
 import { drawnTrack } from '../liveTrackMap/modules/drawTrack.js';
 import { updateSession } from '../liveTrackMap/modules/session.js';
 
-const socket = io('https://livetelemetryviewer.onrender.com', {
+const socket = io('https://transmissorlivetelemetry.onrender.com', {
     transports: ['websocket']
 });
 
