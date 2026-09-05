@@ -1,5 +1,7 @@
 @import url(/css/global/base.css);
 
+@import url(/css/lobby/lobbyPage.css);
+
 @import url(/css/dashboard/page.css);
 @import url(/css/dashboard/hud.css);
 @import url(/css/dashboard/activationTCandABS.css);

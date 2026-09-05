@@ -1,0 +1,52 @@
+.lobbyTitle {
+    font-family: 'Poppins';
+    margin-bottom: 20px; 
+    font-size: 1.8rem; 
+    color: #00e676;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-container {
+    font-family: 'Poppins';
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 0px 50px;
+}
+
+.car-card { 
+    background: #1e1e1e; 
+    border: 1px solid #333; 
+    border-radius: 8px; 
+    padding: 16px; 
+    cursor: pointer; 
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    transition: border-color 0.2s ease, transform 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.car-card:hover { 
+    border-color: #00e676; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(0, 230, 228, 0.1);
+}
+
+.driver-name { 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin-bottom: 8px; 
+    color: #FFFFFF;
+}
+
+.car-info { 
+    font-size: 0.9rem; 
+    color: #b0b0b0; 
+    margin: 4px 0; 
+}
+
+.empty-state {
+    color: #ffffff;
+}
