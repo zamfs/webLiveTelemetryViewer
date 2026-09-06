@@ -6,12 +6,11 @@
 
 It features a custom-built, dynamic track mapping engine using the HTML Canvas API to track vehicle positions and trace racing lines in real-time, alongside localized session handling and stint separation views.
 
-## What's New in Version 0.2
+## What's New in Version 0.3
 
-* **Multi-Car Lobby & Grid View:** Introduces a centralized lobby dashboard that automatically detects and tracks multiple vehicles concurrently on the track, displaying live driver names, car models, and circuit information.
-* **Composite Session Tracking (`sessionKey`):** Replaced legacy car identifiers with a robust composite session key (`socket.id` + `trackName` + `carModel`), completely resolving identity collision issues for multi-car tracking.
-* **Optimized Real-Time DOM Rendering:** Refactored client-side rendering to eliminate visual element flickering and hover-state bugs during high-frequency telemetry updates.
-* **Dynamic Navigation & URL State Propagation:** Automated parameter propagation across all dashboard views, ensuring seamless transitions between the lobby, car information panels, and live track maps.
+* **Stint Lap Times:** Added the ability to view completed lap times within each stint, allowing individual stint performance to be tracked and compared.
+* **Session Persistence After Disconnect:** Driver session information remains available for up to **1 hour after disconnection**, allowing the session, stints, and recorded lap times to continue being viewed after the driver leaves.
+
 
 ## Features
 
