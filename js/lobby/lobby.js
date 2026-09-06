@@ -1,4 +1,5 @@
-const serverUrl = "https://transmissorlivetelemetry.onrender.com";
+//const serverUrl = "https://transmissorlivetelemetry.onrender.com";
+const serverUrl = "http://localhost:3000";
 
 const socket = io(serverUrl);
 const gridContainer = document.getElementById('gridContainer');
@@ -15,14 +16,6 @@ socket.on('grid_atual', (cars) => {
         if (!card) {
             card = document.createElement('div');
             card.id = car.sessionKey;
-            card.className = 'car-card';
-
-            card.innerHTML = `
-                <div class="driver-name">${car.driverName}</div>
-                <div class="car-info"><strong>Car:</strong> ${car.carModel}</div>
-                <div class="car-info"><strong>Track:</strong> ${car.trackName}</div>
-            `;
-
             //Redirect to individual dashboard giving the ID as URL parameter
             card.onclick = () => {
                 //window.location.href = `dashboard.html?carId=${car.carId}`;
@@ -31,6 +24,17 @@ socket.on('grid_atual', (cars) => {
 
             gridContainer.appendChild(card);
         }
+
+        card.className = car.isActive ? 'car-card' : 'car-card offline';
+
+        const statusText = car.isActive ? 'On track' : 'On box / Offiline';
+        
+        card.innerHTML = `
+            <div class="driver-name">${car.driverName}</div>
+            <div class="car-info"><strong>Car:</strong> ${car.carModel}</div>
+            <div class="car-info"><strong>Track:</strong> ${car.trackName}</div>
+            <div class="car-info" style="margin-top: 10px; font-size: 0.8rem;">${statusText}</div>
+        `;
     });
 
     //clean the screen with the disconnected drivers

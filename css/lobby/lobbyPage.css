@@ -50,3 +50,13 @@
 .empty-state {
     color: #ffffff;
 }
+
+.car-card.offline {
+    opacity: 0.5;
+    border-color: #555;
+    filter: grayscale(100%);
+}
+
+.car-card.offline .car-info {
+    color: #777;
+}

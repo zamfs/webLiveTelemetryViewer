@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Telemetry - Lap Times</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Zamorano Sousa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" />
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+</head>
+<body>
+    <h1 class="headerTelemetry">Lap Times</h1>
+    <nav>
+        <ul>
+            <li><a href="/pages/dashboard.html">Dashboard</a></li>
+            <li><a href="/pages/carInfomation.html">Car Information</a></li>
+            <li><a href="/pages/liveTrackMap.html">Live Track Map</a></li>
+            <li><a class="active" href="/pages/lapTimeView.html">Lap Times View</a></li>
+        </ul>
+    </nav>
+
+    <div id="laps-tab" class="telemetry-tab">
+        <div class="lap-table-wrapper">
+            <table class="lap-table">
+                <thead>
+                    <tr>
+                        <th>Lap</th>
+                        <th>Compound</th>
+                        <th>Time</th>
+                        <th>Fuel</th>
+                    </tr>
+                </thead>
+                <tbody id="laps-table-body">
+                    <!-- via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="/js/lapTimeView/lapTimeView.js"></script>
+</body>
+</html>

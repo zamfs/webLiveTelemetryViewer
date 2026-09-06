@@ -1,4 +1,4 @@
-# Web Live Telemetry Viewer (`webLiveTelemetryViewer`) v0.2
+# Web Live Telemetry Viewer (`webLiveTelemetryViewer`) v0.3
 
 ## Overview
 
@@ -18,7 +18,7 @@ It features a custom-built, dynamic track mapping engine using the HTML Canvas A
 * **Real-Time Telemetry Rendering:** Live updates for vehicle speed, engine RPM, G-forces, and pedal inputs.
 * **HTML Canvas Track Mapping:** Dynamically draws scaled track maps and live vehicle coordinates.
 * **Live Tire & Physics Metrics:** Visualizes tire temperatures, pressures, slip angles, and suspension telemetry.
-* **Driver & Stint Separation:** Organizes and filters lap times and stints independently for drivers sharing a vehicle.
+* **Driver & Stint Separation:** Organizes and filters lap times and stints independently for drivers sharing a vehicle **(new v0.3)**.
 * **Client-Side Persistence:** Manages local application state and cached views cleanly using native browser `LocalStorage` and `SessionStorage`.
 
 ---
