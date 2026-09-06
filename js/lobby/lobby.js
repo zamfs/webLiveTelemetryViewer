@@ -1,5 +1,5 @@
-//const serverUrl = "https://transmissorlivetelemetry.onrender.com";
-const serverUrl = "http://localhost:3000";
+const serverUrl = "https://transmissorlivetelemetry.onrender.com";
+//const serverUrl = "http://localhost:3000"; -->local tests
 
 const socket = io(serverUrl);
 const gridContainer = document.getElementById('gridContainer');
