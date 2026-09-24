@@ -1,5 +1,5 @@
 const serverUrl = "https://transmissorlivetelemetry.onrender.com";
-//const serverUrl = "http://localhost:3000"; -->local tests
+//const serverUrl = "http://localhost:3000"; //-->local tests
 
 const socket = io(serverUrl);
 const gridContainer = document.getElementById('gridContainer');
@@ -11,15 +11,15 @@ socket.on('grid_atual', (cars) => {
     }
 
     cars.forEach(car => {
-        let card = document.getElementById(car.sessionKey);
+        let card = document.getElementById(car.publicToken);
 
         if (!card) {
             card = document.createElement('div');
-            card.id = car.sessionKey;
+            card.id = car.publicToken;
             //Redirect to individual dashboard giving the ID as URL parameter
             card.onclick = () => {
-                //window.location.href = `dashboard.html?carId=${car.carId}`;
-                window.location.href = `dashboard.html?sessionKey=${car.sessionKey}`
+            
+                window.location.href = `dashboard.html?token=${car.publicToken}`
             };
 
             gridContainer.appendChild(card);
@@ -38,9 +38,9 @@ socket.on('grid_atual', (cars) => {
     });
 
     //clean the screen with the disconnected drivers
-    const currentSessionKeys = cars.map(c => c.sessionKey);
+    const currentTokens = cars.map(c => c.publicToken);
     document.querySelectorAll('.car-card').forEach(card => {
-        if (!currentSessionKeys.includes(card.id)) {
+        if (!currentTokens.includes(card.id)) {
             card.remove(); //if the id is not in server array, he is removed
         }
     });

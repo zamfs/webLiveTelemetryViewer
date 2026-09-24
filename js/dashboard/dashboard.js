@@ -4,40 +4,47 @@ import { updateSession } from '../dashboard/modules/session.js';
 import { updateControls } from '../dashboard/modules/controls.js';
 
 const urlParams = new URLSearchParams(window.location.search);
-let activeSessionKey = urlParams.get('sessionKey');
+let publicToken = urlParams.get('token');
 
 
-if (activeSessionKey) {
-    sessionStorage.setItem('activeSessionKey', activeSessionKey);
+if (publicToken) {
+    sessionStorage.setItem('publicToken', publicToken);
 } else {
-    activeSessionKey = sessionStorage.getItem('activeSessionKey');
+    publicToken = sessionStorage.getItem('publicToken');
 }
 
-if (activeSessionKey) {
+if (publicToken) {
     document.querySelectorAll('nav a').forEach(link => {
         const currentHref = link.getAttribute('href');
         const cleanHref = currentHref.split('?')[0];
 
-        link.setAttribute('href', `${cleanHref}?sessionKey=${activeSessionKey}`); 
+        link.setAttribute('href', `${cleanHref}?token=${publicToken}`); 
     });
 }
 
+/*const socket = io('http://localhost:3000', {
+    transports: ['websocket']
+});*/
 
 const socket = io('https://transmissorlivetelemetry.onrender.com', {
     transports: ['websocket']
 });
 
-socket.on('telemetry_update', (data) => {
-  
-    if (activeSessionKey !== null && data.sessionKey !== activeSessionKey) {
-        return;
+socket.on('connect', () => {
+    if (publicToken) {
+        socket.emit('join_session', publicToken);
     }
+});
+
+socket.on('telemetry_update', (data) => {
 
     updateSession(data);
     updateControls(data);
 });
 
 
-socket.on('connect_error', () => {
-    console.warn("Waiting connection with Port 3000...");
+socket.on('join_error', (msg) => {
+    console.warn("Access denied: ", msg);
+    alert("Session invalid or over.")
+    window.location.href = '/';
 });

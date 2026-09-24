@@ -1,4 +1,4 @@
-# Web Live Telemetry Viewer (`webLiveTelemetryViewer`) v0.3
+# Web Live Telemetry Viewer (`webLiveTelemetryViewer`) v0.3.1
 
 ## Overview
 
@@ -6,10 +6,9 @@
 
 It features a custom-built, dynamic track mapping engine using the HTML Canvas API to track vehicle positions and trace racing lines in real-time, alongside localized session handling and stint separation views.
 
-## What's New in Version 0.3
+## What's New in Version 0.3.1
 
-* **Stint Lap Times:** Added the ability to view completed lap times within each stint, allowing individual stint performance to be tracked and compared.
-* **Session Persistence After Disconnect:** Driver session information remains available for up to **1 hour after disconnection**, allowing the session, stints, and recorded lap times to continue being viewed after the driver leaves.
+* **Secure URLs & Navigation:** Replaced the exposed sessionKey with a ?token= parameter in the URLs. Telemetry reception now relies entirely on the server's room validation, removing the need for local data filtering in the browser.
 
 
 ## Features
