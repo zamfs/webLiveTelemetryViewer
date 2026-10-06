@@ -26,7 +26,7 @@ if (publicToken) {
     transports: ['websocket']
 });*/
 
-const socket = io('https://transmissorlivetelemetry.onrender.com', {
+const socket = io('http://150.230.230.27:3000', {
     transports: ['websocket']
 });
 
